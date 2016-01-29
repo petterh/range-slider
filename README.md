@@ -1,1 +1,1 @@
-# range-slider
+In a 2001 I devoted one of my "User Interface Programming" columns (Windows Developer's Journal/Windows Developer Magazine) to a simple range slider. Due to space constraints in the print mag, it was fairly simple, so I later expanded on it and published the result on my web site. This project serves as a repository for that old Win32 project (which still works and compiles), plus a new effort to create modern versions -- starting with WPF.

@@ -1,0 +1,214 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "windows.h"
+#include <winres.h>
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DEMO DIALOG DISCARDABLE  0, 0, 294, 156
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+CAPTION "Range Slider Demo Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Some &information space:",IDC_STATIC,7,7,142,8
+    CONTROL         "Range Slider",IDC_VERT,"wdmRangeSlider",WS_BORDER | 
+                    WS_GROUP | 0x1,7,17,11,119
+    EDITTEXT        IDC_EDIT,20,17,129,119,ES_CENTER | ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "Range Slider",IDC_HORZ,"wdmRangeSlider",WS_BORDER | 
+                    WS_GROUP,20,138,129,11
+    LTEXT           "&Price:",IDC_PRICE_LBL,156,7,33,8
+    RTEXT           "$0 - $200",IDC_PRICE_LABEL,232,7,55,8,SS_NOPREFIX
+    CONTROL         "Range Slider",IDC_PRICE,"wdmRangeSlider",WS_BORDER | 
+                    WS_GROUP | WS_TABSTOP,156,17,131,11
+    LTEXT           "&Size:",IDC_SIZE_LBL,156,37,33,8
+    RTEXT           "4 - 14",IDC_SIZE_LABEL,232,37,55,8,SS_NOPREFIX
+    CONTROL         "Range Slider",IDC_SHOESIZE,"wdmRangeSlider",WS_BORDER | 
+                    WS_GROUP | WS_TABSTOP,156,47,131,11
+    LTEXT           "&Color:",IDC_COLOR_LBL,156,72,33,8
+    COMBOBOX        IDC_COLOR,189,71,98,236,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Pro&ducer:",IDC_PRODUCER_LBL,156,92,33,8
+    COMBOBOX        IDC_PRODUCER,189,91,98,236,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "&Country:",IDC_COUNTRY_LBL,156,112,33,8
+    COMBOBOX        IDC_COUNTRY,189,112,98,213,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,181,136,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,237,136,50,14
+END
+
+IDD_TEST DIALOG DISCARDABLE  0, 0, 186, 121
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+CAPTION "Range Slider Test Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Range:",IDC_STATIC,7,7,55,8
+    CONTROL         "&Enable",IDC_ENABLE,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_RIGHT | WS_GROUP | WS_TABSTOP,88,7,91,
+                    10
+    CONTROL         "Range Slider",IDC_RANGE,"wdmRangeSlider",WS_BORDER | 
+                    WS_GROUP | WS_TABSTOP,7,17,172,14
+    LTEXT           "Arrow keys move the whole range left or right;\r\nCtrl+Arrow keys move the upper end only.",
+                    IDC_STATIC,7,35,172,18
+    LTEXT           "&Lower:",IDC_STATIC,7,62,22,8
+    EDITTEXT        IDC_LOWER,31,61,50,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_GROUP
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | UDS_HOTTRACK | WS_GROUP,7,100,11,14
+    LTEXT           "&Upper:",IDC_STATIC,7,79,22,8
+    EDITTEXT        IDC_UPPER,31,78,50,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_GROUP
+    CONTROL         "Spin1",IDC_SPIN2,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | UDS_HOTTRACK | WS_GROUP,18,100,11,14
+    LTEXT           "&Start:",IDC_STATIC,109,62,18,8
+    EDITTEXT        IDC_START,129,61,50,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_GROUP
+    CONTROL         "Spin1",IDC_SPIN3,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | UDS_HOTTRACK | WS_GROUP,29,100,11,14
+    LTEXT           "&End:",IDC_STATIC,109,79,18,8
+    EDITTEXT        IDC_END,129,78,50,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_GROUP
+    CONTROL         "Spin1",IDC_SPIN4,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | UDS_HOTTRACK | WS_GROUP,40,100,11,14
+    LTEXT           "min&Range:",IDC_STATIC,91,100,35,8
+    EDITTEXT        IDC_MINRANGE,129,100,50,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_GROUP
+    CONTROL         "Spin1",IDC_SPIN5,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | UDS_HOTTRACK | WS_GROUP,51,100,11,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 287
+        VERTGUIDE, 18
+        VERTGUIDE, 25
+        VERTGUIDE, 149
+        VERTGUIDE, 156
+        VERTGUIDE, 189
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+        HORZGUIDE, 17
+        HORZGUIDE, 131
+        HORZGUIDE, 138
+    END
+
+    IDD_TEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_RANGESLIDER MENU DISCARDABLE 
+BEGIN
+    POPUP "top"
+    BEGIN
+        MENUITEM "&Restore",                    ID_RESTORE
+        MENUITEM "Ma&ximize",                   ID_MAXIMIZE
+        MENUITEM "Set &Start Here",             ID_START
+        MENUITEM "Set &End Here",               ID_END
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
