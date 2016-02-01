@@ -1,0 +1,204 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UwpRangeSlider">
+    <Style TargetType="local:RangeSlider">
+        <Setter Property="Background" Value="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" />
+        <Setter Property="BorderThickness" Value="{ThemeResource SliderBorderThemeThickness}" />
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlHighlightAccentBrush}" />
+        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+        <Setter Property="ManipulationMode" Value="None" />
+        <Setter Property="UseSystemFocusVisuals" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RangeSlider">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.Resources>
+                            <Style TargetType="Thumb" x:Key="SliderThumbStyle">
+                                <Setter Property="BorderThickness" Value="0" />
+                                <Setter Property="Background" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Thumb">
+                                            <Border
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="4" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="LeftThumb.Background" Value="{ThemeResource SystemControlHighlightChromeHighBrush}" />
+                                        <Setter Target="VerticalThumb.Background" Value="{ThemeResource SystemControlHighlightChromeHighBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+                                        <Setter Target="HeaderContentPresenter.Foreground" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                        <Setter Target="HorizontalDecreaseRect.Fill" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                        <Setter Target="HorizontalTrackRect.Fill" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                        <Setter Target="VerticalDecreaseRect.Fill" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                        <Setter Target="VerticalTrackRect.Fill" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                        <Setter Target="LeftThumb.Background" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                        <Setter Target="VerticalThumb.Background" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                        <Setter Target="TopTickBar.Fill" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                        <Setter Target="BottomTickBar.Fill" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                        <Setter Target="LeftTickBar.Fill" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                        <Setter Target="RightTickBar.Fill" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Target="HorizontalTrackRect.Fill" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+                                        <Setter Target="VerticalTrackRect.Fill" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+                                        <Setter Target="LeftThumb.Background" Value="{ThemeResource SystemControlHighlightChromeAltLowBrush}" />
+                                        <Setter Target="VerticalThumb.Background" Value="{ThemeResource SystemControlHighlightChromeAltLowBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter
+                            x:Name="HeaderContentPresenter"
+                            x:DeferLoadStrategy="Lazy"
+                            Visibility="Collapsed"
+                            Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                            Margin="{ThemeResource SliderHeaderThemeMargin}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            FontWeight="{ThemeResource SliderHeaderThemeFontWeight}"
+                            TextWrapping="Wrap" />
+                        <Grid x:Name="SliderContainer" Background="Transparent" Grid.Row="1" Control.IsTemplateFocusTarget="True">
+                            <Grid x:Name="HorizontalTemplate" MinHeight="44">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="18" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="18" />
+                                </Grid.RowDefinitions>
+                                <Rectangle
+                                    x:Name="HorizontalTrackRect"
+                                    Fill="{TemplateBinding Background}"
+                                    Height="{ThemeResource SliderTrackThemeHeight}"
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="3" />
+                                <Rectangle
+                                    x:Name="HorizontalDecreaseRect"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Grid.Row="1" />
+                                <TickBar
+                                    x:Name="TopTickBar"
+                                    Visibility="Collapsed"
+                                    Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                                    Height="{ThemeResource SliderOutsideTickBarThemeHeight}"
+                                    VerticalAlignment="Bottom"
+                                    Margin="0,0,0,4"
+                                    Grid.ColumnSpan="3" />
+                                <TickBar
+                                    x:Name="HorizontalInlineTickBar"
+                                    Visibility="Collapsed"
+                                    Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"
+                                    Height="{ThemeResource SliderTrackThemeHeight}"
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="3" />
+                                <TickBar
+                                    x:Name="BottomTickBar"
+                                    Visibility="Collapsed"
+                                    Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                                    Height="{ThemeResource SliderOutsideTickBarThemeHeight}"
+                                    VerticalAlignment="Top"
+                                    Margin="0,4,0,0"
+                                    Grid.Row="2"
+                                    Grid.ColumnSpan="3" />
+                                <Thumb
+                                    x:Name="LeftThumb"
+                                    Background="{ThemeResource SystemControlForegroundAccentBrush}"
+                                    Style="{StaticResource SliderThumbStyle}"
+                                    DataContext="{TemplateBinding Lower}"
+                                    Height="24"
+                                    Width="8"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Grid.Column="1"
+                                    AutomationProperties.AccessibilityView="Raw" />
+                            </Grid>
+                            <Grid x:Name="VerticalTemplate" MinWidth="44" Visibility="Collapsed">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="18" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="18" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle
+                                    x:Name="VerticalTrackRect"
+                                    Fill="{TemplateBinding Background}"
+                                    Width="{ThemeResource SliderTrackThemeHeight}"
+                                    Grid.Column="1"
+                                    Grid.RowSpan="3" />
+                                <Rectangle
+                                    x:Name="VerticalDecreaseRect"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Grid.Column="1"
+                                    Grid.Row="2" />
+                                <TickBar
+                                    x:Name="LeftTickBar"
+                                    Visibility="Collapsed"
+                                    Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                                    Width="{ThemeResource SliderOutsideTickBarThemeHeight}"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,0,4,0"
+                                    Grid.RowSpan="3" />
+                                <TickBar
+                                    x:Name="VerticalInlineTickBar"
+                                    Visibility="Collapsed"
+                                    Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"
+                                    Width="{ThemeResource SliderTrackThemeHeight}"
+                                    Grid.Column="1"
+                                    Grid.RowSpan="3" />
+                                <TickBar
+                                    x:Name="RightTickBar"
+                                    Visibility="Collapsed"
+                                    Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                                    Width="{ThemeResource SliderOutsideTickBarThemeHeight}"
+                                    HorizontalAlignment="Left"
+                                    Margin="4,0,0,0"
+                                    Grid.Column="2"
+                                    Grid.RowSpan="3" />
+                                <Thumb
+                                    x:Name="VerticalThumb"
+                                    Background="{ThemeResource SystemControlForegroundAccentBrush}"
+                                    Style="{StaticResource SliderThumbStyle}"
+                                    DataContext="{TemplateBinding Lower}"
+                                    Width="24"
+                                    Height="8"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    AutomationProperties.AccessibilityView="Raw"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
